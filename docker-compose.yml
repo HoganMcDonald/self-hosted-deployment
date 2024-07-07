@@ -25,22 +25,6 @@ services:
       - "traefik.http.routers.traefik-dashboard.entrypoints=web"
       - "traefik.http.routers.traefik-dashboard.service=api@internal"
 
-  runner:
-    image: gitea/act_runner:latest
-    container_name: gitea_act_runner
-    restart: always
-    depends_on:
-      - gitea
-    volumes:
-      - ./data/act_runner:/data
-      - /var/run/docker.sock:/var/run/docker.sock
-    environment:
-      - GITEA_RUNNER_REGISTRATION_TOKEN=eYnkjfY876KHKHMa0ntJdxsd6egTRhuoDm17Eihu
-      - GITEA_INSTANCE_URL=http://gitea:3000
-      - RUNNER_NAME=runner
-    networks:
-      - web
-
   gitea:
     image: gitea/gitea:latest
     container_name: gitea
@@ -71,6 +55,8 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ${REPO_DIR}:/repo
+    networks:
+      - web
 
 networks:
   web:
