@@ -10,6 +10,9 @@ jobs:
       run:
         working-directory: /repo
     steps:
+      - name: just a test
+        run: echo "test${GITHUB_REPOSITORY}"
+
       - name: Set git remote if not already set
         run: git remote -v | grep -w gitea || git remote add gitea "./gitea/git/repositories/${GITHUB_REPOSITORY,,}.git"
 
