@@ -49,7 +49,7 @@ services:
     container_name: gitea_act_runner
     restart: unless-stopped
     environment:
-      - GITEA_RUNNER_REGISTRATION_TOKEN=${GITEA_RUNNER_TOKEN}
+      - GITEA_RUNNER_REGISTRATION_TOKEN=${RUNNER_TOKEN}
       - GITEA_INSTANCE_URL=http://gitea:3000
       - RUNNER_NAME=runner
     volumes:
