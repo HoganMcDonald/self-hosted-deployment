@@ -41,6 +41,8 @@ services:
       - "traefik.http.routers.gitea.rule=Host(`gitea.home.com`)"
       - "traefik.http.services.gitea.loadbalancer.server.port=3000"
       - "traefik.http.routers.gitea.entrypoints=web"
+    networks:
+      - web
 
   gitea_act:
     image: gitea/act_runner:latest
