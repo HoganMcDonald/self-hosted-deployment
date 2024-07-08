@@ -58,16 +58,6 @@ services:
     networks:
       - web
 
-  # gitea_act:
-  #   container_name: gitea_act
-  #   restart: unless-stopped
-  #   image: rynomarree/self-hosted-deployment:latest
-  #   environment:
-  #     - RUNNER_TOKEN=${RUNNER_TOKEN}
-  #   volumes:
-  #     - /var/run/docker.sock:/var/run/docker.sock
-  #     - ${REPO_DIR}:/repo
-
 networks:
   web:
     external: true

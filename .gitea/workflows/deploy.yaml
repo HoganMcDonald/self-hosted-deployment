@@ -8,7 +8,7 @@ jobs:
   deploy:
     defaults:
       run:
-        working-directory: .
+        working-directory: /root
     steps:
       - name: Print cwd
         run: pwd && ls -alH
