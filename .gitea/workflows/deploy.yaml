@@ -6,9 +6,6 @@ on:
 
 jobs:
   deploy:
-    defaults:
-      run:
-        working-directory: /root
     steps:
       - name: Print environment variables
         run: printenv
