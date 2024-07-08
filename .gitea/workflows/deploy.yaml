@@ -8,7 +8,7 @@ jobs:
   deploy:
     defaults:
       run:
-        working-directory: ~/repo
+        working-directory: .
     steps:
 
       - name: Set git remote if not already set
