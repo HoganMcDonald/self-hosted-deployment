@@ -44,20 +44,30 @@ services:
     networks:
       - web
 
+  # gitea_act:
+  #   image: gitea/act_runner:latest
+  #   container_name: gitea_act_runner
+  #   restart: unless-stopped
+  #   environment:
+  #     - GITEA_RUNNER_REGISTRATION_TOKEN=${RUNNER_TOKEN}
+  #     - GITEA_INSTANCE_URL=http://gitea:3000
+  #     - RUNNER_NAME=runner
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #     - ${REPO_DIR}:/repo
+  #     - runner_config.yml:/runner_config.yml
+  #   networks:
+  #     - web
+
   gitea_act:
-    image: gitea/act_runner:latest
-    container_name: gitea_act_runner
+    container_name: gitea_act
     restart: unless-stopped
+    image: rynomarree/self-hosted-deployment:latest
     environment:
-      - GITEA_RUNNER_REGISTRATION_TOKEN=${RUNNER_TOKEN}
-      - GITEA_INSTANCE_URL=http://gitea:3000
-      - RUNNER_NAME=runner
+      - RUNNER_TOKEN=${RUNNER_TOKEN}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ${REPO_DIR}:/repo
-      - runner_config.yml:/runner_config.yml
-    networks:
-      - web
 
 networks:
   web:
