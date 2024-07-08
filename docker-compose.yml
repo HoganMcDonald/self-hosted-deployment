@@ -55,7 +55,6 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ${REPO_DIR}:/repo
-      - runner_config.yml:/runner_config.yml
     networks:
       - web
 
