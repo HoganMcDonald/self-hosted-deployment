@@ -10,8 +10,14 @@ jobs:
       run:
         working-directory: /root
     steps:
-      - name: Print cwd
+      - name: Print environment variables
+        run: printenv
+
+      - name: Print current directory and list contents
         run: pwd && ls -alH
+
+      - name: List /repo directory contents
+        run: ls -alH /repo
 
       - name: Set git remote if not already set
         run: git remote -v | grep -w gitea || git remote add gitea "./gitea/git/repositories/${GITHUB_REPOSITORY,,}.git"
