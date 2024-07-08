@@ -11,7 +11,7 @@ jobs:
         working-directory: .
     steps:
       - name: Print cwd
-        run: pwd
+        run: pwd && ls -alH
 
       - name: Set git remote if not already set
         run: git remote -v | grep -w gitea || git remote add gitea "./gitea/git/repositories/${GITHUB_REPOSITORY,,}.git"
